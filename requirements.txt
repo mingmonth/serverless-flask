@@ -1,7 +1,17 @@
+autopep8==1.6.0
+boto3==1.21.2
+botocore==1.24.2
 click==8.0.3
 colorama==0.4.4
 Flask==2.0.3
 itsdangerous==2.1.0
 Jinja2==3.0.3
+jmespath==0.10.0
 MarkupSafe==2.1.0
+pycodestyle==2.8.0
+python-dateutil==2.8.2
+s3transfer==0.5.1
+six==1.16.0
+toml==0.10.2
+urllib3==1.26.8
 Werkzeug==2.0.3
