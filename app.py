@@ -34,7 +34,7 @@ def get_user(user_id):
     })
 
 
-@app.route("/users", method=["POST"])
+@app.route("/users", methods=["POST"])
 def create_user():
     user_id = request.json.get('userId')
     name = request.json.get('name')
