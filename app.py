@@ -7,7 +7,7 @@ import boto3
 from flask import Flask, jsonify, request
 app = Flask(__name__)
 
-USERS_TABLE = os.environ['USERS_TALBE']
+USERS_TABLE = os.environ['USERS_TABLE']
 client = boto3.client('dynamodb')
 
 
