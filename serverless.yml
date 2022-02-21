@@ -5,8 +5,25 @@ service: serverless-flask
 plugins:
   - serverless-python-requirements
   - serverless-wsgi
+  - serverless-plugin-warmup
 
 custom:
+  warmup:
+    default:
+      enabled: true
+      folderName: ".warmup"
+      memorySize: 256
+      name: warmer-default
+      events:
+        - schedule: rate(2 minutes)
+      package:
+        individually: true
+        patterns:
+          - "!../**"
+          - "!../../**"
+          - ./**
+      timeout: 20
+      concurrency: 1
   tableName: "users-table-${self:provider.stage}"
   wsgi:
     app: app.app
@@ -42,6 +59,9 @@ functions:
     events:
       - http: ANY /
       - http: "ANY {proxy+}"
+    warmup:
+      default:
+        enabled: true
 
 resources:
   Resources:
